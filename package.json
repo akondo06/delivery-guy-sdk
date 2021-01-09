@@ -1,0 +1,24 @@
+{
+	"name": "DeliveryGuySDK",
+	"version": "1.0.0",
+	"description": "",
+	"main": "build/index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "babel index.js -d build"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"axios": "^0.21.0"
+	},
+	"devDpendencies": {
+		"@babel/cli": "^7.2.0",
+		"@babel/core": "^7.2.0",
+		"@babel/plugin-transform-runtime": "^7.2.0",
+		"@babel/preset-env": "^7.2.0",
+		"@babel/runtime": "^7.2.0",
+		"babel-core": "^6.26.3",
+		"babel-plugin-transform-object-rest-spread": "^6.26.0"
+	}
+}
