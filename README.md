@@ -5,4 +5,3 @@
 ```
 yarn install
 ```
-# delivery-guy-sdk
