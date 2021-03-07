@@ -15,7 +15,9 @@ class Service {
   constructor() {
     var {
       baseUrl,
-      token
+      token,
+      onResponse,
+      onResponseError
     } = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
     this.token = token;
     this._instance = _axios.default.create({
@@ -101,6 +103,14 @@ class Service {
         throw error;
       }
     })();
+  }
+
+  addResponseInterceptor(handler, handlerError) {
+    return this._instance.interceptors.response.use(handler, handlerError);
+  }
+
+  removeResponseInterceptor(tag) {
+    return this._instance.interceptors.response.eject(tag);
   }
 
 }

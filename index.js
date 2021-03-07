@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export default class Service {
-	constructor({ baseUrl, token } = {}) {
+	constructor({ baseUrl, token, onResponse, onResponseError } = {}) {
 		this.token = token;
 		this._instance = axios.create({
 			baseURL: baseUrl || 'https://api.akondo.dev'
@@ -78,5 +78,13 @@ export default class Service {
 		} catch(error) {
 			throw error;
 		}
+	}
+
+	addResponseInterceptor(handler, handlerError) {
+		return this._instance.interceptors.response.use(handler, handlerError);
+	}
+
+	removeResponseInterceptor(tag) {
+		return this._instance.interceptors.response.eject(tag);
 	}
 }
